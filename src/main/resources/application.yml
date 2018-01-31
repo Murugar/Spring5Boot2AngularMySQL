@@ -1,0 +1,24 @@
+# Spring Boot configuration
+spring:
+  profiles:
+    active: production
+# Database
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/userdb?createDatabaseIfNotExist=true
+    username: root
+    password: good1234
+# JPA properties
+  jpa:
+    hibernate:
+      # Hibernate ddl auto (create, create-drop, update)
+      ddl-auto: update
+    # Show or not log for each sql query
+    show-sql: true
+    database: mysql
+    # The SQL dialect makes Hibernate generate better SQL for the chosen database
+    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
+# Logging
+
+
+
