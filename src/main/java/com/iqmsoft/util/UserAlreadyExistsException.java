@@ -1,4 +1,4 @@
-package com.iqmsoft.service.exception;
+package com.iqmsoft.util;
 
 public class UserAlreadyExistsException extends RuntimeException {
 

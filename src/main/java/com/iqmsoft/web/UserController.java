@@ -12,10 +12,11 @@ import org.springframework.web.util.UriComponentsBuilder;
 
 import com.iqmsoft.domain.User;
 import com.iqmsoft.service.UserService;
-import com.iqmsoft.service.exception.UserAlreadyExistsException;
+import com.iqmsoft.util.UserAlreadyExistsException;
 
 import javax.inject.Inject;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @RestController("user")
@@ -37,10 +38,10 @@ public class UserController {
             method = RequestMethod.POST)
     public ResponseEntity<User> createUser(@RequestBody User user, UriComponentsBuilder ucBuilder) {
         LOGGER.debug(">>> Creating user with id: " + user.getId());
-        if (userService.isUserExist(user)) {
-            LOGGER.debug("A user with name " + user.getId() + "exist.");
-            return new ResponseEntity<>(HttpStatus.CONFLICT);
-        }
+       // if (userService.isUserExist(user)) {
+           // LOGGER.debug("A user with name " + user.getId() + "exist.");
+            //return new ResponseEntity<>(HttpStatus.CONFLICT);
+        //}
         userService.saveUser(user);
         HttpHeaders headers = new HttpHeaders();
         headers.setLocation(ucBuilder.path("user/{id}").buildAndExpand(user.getId()).toUri());
